@@ -16,8 +16,6 @@
 
 package org.lineageos.settings.device;
 
-import org.lineageos.internal.util.FileUtils;
-
 public class SwitchPreferenceBackend {
 
     private String[] mPaths;
