@@ -31,6 +31,9 @@ persist.hwc.enable_vds=1
 persist.sys.wfd.virtual=0
 ro.opengles.version=196610
 
+# Fastbootd
+ro.fastbootd.available=true
+
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
 vidc.enc.dcvs.extra-buff-count=2
