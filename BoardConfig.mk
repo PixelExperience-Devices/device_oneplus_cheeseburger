@@ -32,3 +32,5 @@ TARGET_OTA_ASSERT_DEVICE := cheeseburger,OnePlus5,oneplus5
 
 # inherit from the proprietary version
 -include vendor/oneplus/cheeseburger/BoardConfigVendor.mk
+
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
