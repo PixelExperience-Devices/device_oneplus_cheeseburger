@@ -30,6 +30,9 @@ DEVICE_PATH := device/oneplus/cheeseburger
 # Assertions
 TARGET_OTA_ASSERT_DEVICE := cheeseburger,OnePlus5,oneplus5
 
+# Lineage Hardware
+JAVA_SOURCE_OVERLAYS += org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
+
 # inherit from the proprietary version
 -include vendor/oneplus/cheeseburger/BoardConfigVendor.mk
 
