@@ -2,5 +2,11 @@
   {
     "repository": "device_oneplus_msm8998-common",
     "target_path": "device/oneplus/msm8998-common"
+  },
+  {
+    "repository":  "vendor_oneplus_cheeseburger",
+    "target_path": "vendor/oneplus/cheeseburger",
+    "branch": "ten",
+    "remote": "pixel-devices-bitbucket"
   }
 ]
