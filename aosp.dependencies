@@ -7,6 +7,6 @@
     "repository":  "vendor_oneplus_cheeseburger",
     "target_path": "vendor/oneplus/cheeseburger",
     "branch": "ten",
-    "remote": "pixel-devices-bitbucket"
+    "remote": "pixel-devices-blobs"
   }
 ]
