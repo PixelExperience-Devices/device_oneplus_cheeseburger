@@ -73,6 +73,7 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_cheeseburger
+TARGET_RECOVERY_DEVICE_MODULES := libinit_cheeseburger
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
