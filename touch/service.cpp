@@ -18,7 +18,6 @@
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
-#include <touch/oneplus/TouchscreenGesture.h>
 
 #include "KeyDisabler.h"
 #include "KeySwapper.h"
@@ -30,15 +29,12 @@ using android::hardware::joinRpcThreadpool;
 
 using ::vendor::lineage::touch::V1_0::IKeyDisabler;
 using ::vendor::lineage::touch::V1_0::IKeySwapper;
-using ::vendor::lineage::touch::V1_0::ITouchscreenGesture;
 using ::vendor::lineage::touch::V1_0::implementation::KeyDisabler;
 using ::vendor::lineage::touch::V1_0::implementation::KeySwapper;
-using ::vendor::lineage::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
     sp<IKeyDisabler> key_disabler = new KeyDisabler();
     sp<IKeySwapper> key_swapper = new KeySwapper();
-    sp<ITouchscreenGesture> gestureService = new TouchscreenGesture();
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
@@ -49,11 +45,6 @@ int main() {
 
     if (key_swapper->registerAsService() != OK) {
         LOG(ERROR) << "Cannot register keyswapper HAL service.";
-        return 1;
-    }
-
-    if (gestureService->registerAsService() != android::OK) {
-        LOG(ERROR) << "Cannot register touchscreen gesture HAL service.";
         return 1;
     }
 
