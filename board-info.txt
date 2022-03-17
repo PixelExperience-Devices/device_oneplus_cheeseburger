@@ -1,2 +1,3 @@
+require board=cheeseburger || OnePlus5 || oneplus5
 require version-modem=2020-10-29 21:13:56
 require version-firmware=10.0.1
