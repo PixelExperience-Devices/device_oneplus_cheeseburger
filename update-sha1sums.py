@@ -9,7 +9,7 @@ import os
 import sys
 from hashlib import sha1
 
-device = 'msm8998-common'
+device = 'cheeseburger'
 vendor = 'oneplus'
 
 with open('proprietary-files.txt', 'r') as f:

@@ -1,5 +1,4 @@
-# Common proprietary files - from
-# OnePlus/OnePlus5/OnePlus5:10/QKQ1.191014.012/2010292059, unless pinned
+# These proprietary files are extracted from OnePlus/OnePlus5/OnePlus5:10/QKQ1.191014.012/2010292059, unless pinned
 
 # ADSP / CDSP / MDSP / SDSP
 vendor/bin/adsprpcd
@@ -47,6 +46,20 @@ vendor/lib/rfsa/adsp/libvpp_svc_skel.so
 
 # ANT+ - from sld_sprout RKQ1.210607.001-00WW_3_490
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so|87dc1a131534659173e71e108e7a3ffe6325845f
+
+# Audio ACDB
+vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
+vendor/etc/acdbdata/MTP/MTP_General_cal.acdb
+vendor/etc/acdbdata/MTP/MTP_Global_cal.acdb
+vendor/etc/acdbdata/MTP/MTP_Handset_cal.acdb
+vendor/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
+vendor/etc/acdbdata/MTP/MTP_Headset_cal.acdb
+vendor/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
+vendor/etc/acdbdata/MTP/MTP_workspaceFile.qwsp
+vendor/etc/acdbdata/adsp_avs_config.acdb
+
+# Audio firmware
+vendor/etc/firmware/tfa98xx.cnt:vendor/firmware/tfa98xx.cnt
 
 # Audio
 vendor/lib/soundfx/libasphere.so
@@ -143,6 +156,16 @@ vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libseemore.so
 vendor/lib/libstblur_capture_api.so
+vendor/lib/libSonyIMX350PdafLibrary.so
+vendor/lib/libmmcamera2_iface_modules.so
+vendor/lib/libmmcamera2_imglib_modules.so
+vendor/lib/libmmcamera2_mct.so
+vendor/lib/libmmcamera2_sensor_modules.so
+vendor/lib/libmmcamera2_stats_modules.so
+vendor/lib/libmmcamera_imx350.so
+vendor/lib/libmmcamera_imx350_gt24c64ass_eeprom.so
+vendor/lib/libmmcamera_imx398.so
+vendor/lib/hw/camera.msm8998.so
 vendor/lib64/libDeVIS.so
 vendor/lib64/libEIS.so
 vendor/lib64/libOGLManager.so
@@ -158,9 +181,32 @@ vendor/lib64/libmmcamera_tintless_algo.so
 vendor/lib64/libseemore.so
 
 # Camera actuators
+vendor/lib/libactuator_lc898217xc_imx350.so
 vendor/lib/libactuator_lc898217xc_imx398.so
 
 # Camera chromatix
+vendor/lib/libchromatix_imx350_3a_1536x866_30fps_video.so
+vendor/lib/libchromatix_imx350_3a_2304x1300_30fps_preview.so
+vendor/lib/libchromatix_imx350_3a_2304x1300_30fps_video.so
+vendor/lib/libchromatix_imx350_3a_2592x1940_24fps_preview_bokeh.so
+vendor/lib/libchromatix_imx350_3a_4160x3120_30fps_preview_bokeh.so
+vendor/lib/libchromatix_imx350_3a_4608x3456_27fps_preview.so
+vendor/lib/libchromatix_imx350_3a_5184x3880_30fps_preview.so
+vendor/lib/libchromatix_imx350_common.so
+vendor/lib/libchromatix_imx350_cpp_1536x866_30fps_video.so
+vendor/lib/libchromatix_imx350_cpp_2304x1300_30fps_video.so
+vendor/lib/libchromatix_imx350_cpp_4160x3120_30fps_preview_bokeh.so
+vendor/lib/libchromatix_imx350_cpp_4160x3120_30fps_snapshot_bokeh.so
+vendor/lib/libchromatix_imx350_cpp_4608x3456_27fps_preview.so
+vendor/lib/libchromatix_imx350_cpp_4608x3456_27fps_snapshot.so
+vendor/lib/libchromatix_imx350_cpp_5184x3880_30fps_preview.so
+vendor/lib/libchromatix_imx350_cpp_5184x3880_30fps_snapshot.so
+vendor/lib/libchromatix_imx350_isp_1536x866_30fps_video.so
+vendor/lib/libchromatix_imx350_isp_2304x1300_30fps_video.so
+vendor/lib/libchromatix_imx350_isp_4160x3120_30fps_snapshot_bokeh.so
+vendor/lib/libchromatix_imx350_isp_4608x3456_27fps_snapshot.so
+vendor/lib/libchromatix_imx350_isp_5184x3880_30fps_snapshot.so
+vendor/lib/libchromatix_imx350_postproc.so
 vendor/lib/libchromatix_imx371_3a_2304x1728_30fps_auto_hdr.so
 vendor/lib/libchromatix_imx371_3a_2304x1728_30fps_hdr.so
 vendor/lib/libchromatix_imx371_3a_2304x1728_30fps_preview.so
@@ -176,6 +222,7 @@ vendor/lib/libchromatix_imx371_cpp_2304x1728_30fps_snapshot.so
 vendor/lib/libchromatix_imx371_cpp_2304x1728_30fps_video.so
 vendor/lib/libchromatix_imx371_cpp_4656x3456_30fps_snapshot.so
 vendor/lib/libchromatix_imx371_cpp_640x480_120fps_video.so
+vendor/lib/libchromatix_imx371_cpp_640x480_30fps_video.so
 vendor/lib/libchromatix_imx371_isp_2304x1728_30fps_snapshot.so
 vendor/lib/libchromatix_imx371_isp_2304x1728_30fps_video.so
 vendor/lib/libchromatix_imx371_isp_4656x3456_30fps_snapshot.so
@@ -183,6 +230,7 @@ vendor/lib/libchromatix_imx371_isp_640x480_120fps_video.so
 vendor/lib/libchromatix_imx371_postproc.so
 vendor/lib/libchromatix_imx398_3a_1476x834_120fps_video.so
 vendor/lib/libchromatix_imx398_3a_2328x1304_60fps_video.so
+vendor/lib/libchromatix_imx398_3a_3264x2448_24fps_preview_bokeh.so
 vendor/lib/libchromatix_imx398_3a_3264x2448_30fps_preview_bokeh.so
 vendor/lib/libchromatix_imx398_3a_4656x2608_30fps_preview.so
 vendor/lib/libchromatix_imx398_3a_4656x2608_30fps_video.so
@@ -192,6 +240,7 @@ vendor/lib/libchromatix_imx398_3a_4656x3496_30fps_video.so
 vendor/lib/libchromatix_imx398_3a_hq.so
 vendor/lib/libchromatix_imx398_3a_manual.so
 vendor/lib/libchromatix_imx398_3a_panorama.so
+vendor/lib/libchromatix_imx398_3a_wechat_preview.so
 vendor/lib/libchromatix_imx398_common.so
 vendor/lib/libchromatix_imx398_cpp_1476x834_120fps_video.so
 vendor/lib/libchromatix_imx398_cpp_2328x1304_60fps_video.so
@@ -218,14 +267,24 @@ vendor/lib/libchromatix_imx398_isp_4656x3496_30fps_snapshot.so
 vendor/lib/libchromatix_imx398_isp_4656x3496_30fps_video.so
 vendor/lib/libchromatix_imx398_isp_manual.so
 vendor/lib/libchromatix_imx398_isp_panorama.so
+vendor/lib/libchromatix_imx398_isp_zsl_snapshot.so
 vendor/lib/libchromatix_imx398_postproc.so
+vendor/lib/libchromatix_imx398_preview_1080p_cpp.so
 
 # Camera etc
 vendor/etc/camera/ashdr/iso617_4608x3456.ncf
 vendor/etc/camera/ashdr/ncf_pack.ncf
 vendor/etc/camera/ashdr/ncf_pack_imx371.ncf
 vendor/etc/camera/camera_config.xml
+vendor/etc/camera/imx350_chromatix.xml
 vendor/etc/camera/imx371_chromatix.xml
+vendor/etc/camera/imx398_chromatix.xml
+vendor/etc/oneplus5_vstab_db_1080p_video_0_30fps.config
+vendor/etc/oneplus5_vstab_db_1080p_video_0_60fps.config
+vendor/etc/oneplus5_vstab_db_1080p_video_1_30fps.config
+vendor/etc/oneplus5_vstab_db_4k_video_0_30fps.config
+vendor/etc/oneplus5_vstab_db_720p_video_0_30fps.config
+vendor/etc/oneplus5_vstab_db_720p_video_1_30fps.config
 vendor/etc/sensors/hals.conf
 
 # Camera firmware
@@ -353,6 +412,10 @@ vendor/lib64/vendor.qti.latency@2.1.so|47f0d25338274af94764be9d39eabef8cf5ca790
 # Dash
 vendor/xbin/dashd:vendor/bin/dashd
 
+# Display calib
+vendor/etc/qdcm_calib_data_samsung_s6e3fa5_1080p_cmd_mode_dsi_panel.xml
+vendor/etc/qdcm_calib_data_samsung_s6e3fa6_1080p_cmd_mode_dsi_panel.xml
+
 # DPM - from sld_sprout RKQ1.210607.001-00WW_3_490
 system_ext/bin/dpmd|4662a11c5331919cc08d541a298444ffce18cc1b
 system_ext/etc/dpm/dpm.conf|95e27da8c989e96c6faea6f0697bce11955b62a5
@@ -423,6 +486,7 @@ vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/fp_hal_extension.so
 vendor/lib64/vendor.oneplus.fingerprint.extension@1.0.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
+vendor/lib64/hw/fingerprint.msm8998.so
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8998.so

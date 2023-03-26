@@ -6,7 +6,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter cheeseburger dumpling,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),cheeseburger)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

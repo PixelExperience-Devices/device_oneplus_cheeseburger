@@ -46,7 +46,7 @@ def CopyBlobs(input_zip, output_zip):
       common.ZipWriteStr(output_zip, "firmware-update/" + fn, input_zip.read(f))
 
 def AddVendorAssertion(info):
-  cmd = 'assert(oneplus.file_exists("/dev/block/bootdevice/by-name/vendor") == "1" || \
+  cmd = 'assert(cheeseburger.file_exists("/dev/block/bootdevice/by-name/vendor") == "1" || \
     abort("Error: Vendor partition doesn\'t exist!"););'
   info.script.AppendExtra(cmd)
   return
@@ -60,7 +60,7 @@ def AddModemAssertion(info):
     version_firmware = f.group(1).rstrip()
     if ((len(version_modem) and '*' not in version_modem) and \
         (len(version_firmware) and '*' not in version_firmware)):
-      cmd = 'assert(oneplus.verify_modem("' + version_modem + '") == "1" || \
+      cmd = 'assert(cheeseburger.verify_modem("' + version_modem + '") == "1" || \
         abort("Error: This package requires firmware version ' + version_firmware + \
         ' or newer. Please upgrade firmware and retry!"););'
       info.script.AppendExtra(cmd)
@@ -75,7 +75,7 @@ def AddFirmwareUpdate(info, filemap):
     version_firmware = f.group(1).rstrip()
     if ((len(version_modem) and '*' not in version_modem) and \
         (len(version_firmware) and '*' not in version_firmware)):
-      info.script.AppendExtra('ifelse(oneplus.verify_modem("' + version_modem + '") != "1",')
+      info.script.AppendExtra('ifelse(cheeseburger.verify_modem("' + version_modem + '") != "1",')
       info.script.AppendExtra('(')
       info.script.AppendExtra('  ui_print("Upgrading firmware to ' + version_firmware + '");')
       for file in filemap:

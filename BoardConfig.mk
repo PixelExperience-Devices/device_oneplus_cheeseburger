@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-PLATFORM_PATH := device/oneplus/msm8998-common
+DEVICE_PATH := device/oneplus/cheeseburger
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8998
@@ -30,6 +30,10 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+# Assertions
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+TARGET_OTA_ASSERT_DEVICE := cheeseburger,OnePlus5,oneplus5
 
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
@@ -60,15 +64,15 @@ TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
 
 # Filesystem
-TARGET_FS_CONFIG_GEN += $(PLATFORM_PATH)/configs/config.fs
+TARGET_FS_CONFIG_GEN += $(DEVICE_PATH)/configs/config.fs
 
 # HIDL
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(PLATFORM_PATH)/configs/hidl/framework_manifest.xml
-DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/configs/hidl/manifest.xml
-DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/configs/hidl/compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/framework_manifest.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(PLATFORM_PATH):libinit_oneplus_msm8998
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_cheeseburger
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -85,17 +89,17 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Properties
-TARGET_SYSTEM_EXT_PROP += $(PLATFORM_PATH)/system_ext.prop
-TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
-TARGET_VENDOR_PROP += $(PLATFORM_PATH)/vendor.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Recovery
-TARGET_RECOVERY_DEVICE_DIRS := $(PLATFORM_PATH)
-TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_DEVICE_DIRS := $(DEVICE_PATH)
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oneplus
-TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cheeseburger
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
@@ -110,9 +114,9 @@ VENDOR_SECURITY_PATCH := 2020-09-01
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 
-BOARD_VENDOR_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor
-PRODUCT_PRIVATE_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/private
-PRODUCT_PUBLIC_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/public
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+PRODUCT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+PRODUCT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
@@ -139,4 +143,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # inherit from the proprietary version
-include vendor/oneplus/msm8998-common/BoardConfigVendor.mk
+include vendor/oneplus/cheeseburger/BoardConfigVendor.mk

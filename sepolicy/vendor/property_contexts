@@ -11,6 +11,7 @@ vendor.camera.                         u:object_r:camera_prop:s0
 sdm.disable_hdr_lut_gen                u:object_r:vendor_display_prop:s0
 
 # Fingerprint
+fpc_kpi                                u:object_r:vendor_fp_prop:s0
 gf.debug.dump_data                     u:object_r:vendor_default_prop:s0
 
 # Firmware

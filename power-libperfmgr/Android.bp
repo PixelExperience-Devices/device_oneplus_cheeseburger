@@ -14,7 +14,7 @@
 // limitations under the License.
 
 cc_library {
-    name: "libdisppower-msm8998",
+    name: "libdisppower",
     proprietary: true,
     srcs: [
         "disp-power/DisplayLowPower.cpp",
@@ -30,10 +30,10 @@ cc_library {
 }
 
 cc_binary {
-    name: "android.hardware.power-service.oneplus_msm8998-libperfmgr",
+    name: "android.hardware.power-service.cheeseburger-libperfmgr",
     relative_install_path: "hw",
-    init_rc: ["aidl/android.hardware.power-service.oneplus_msm8998-libperfmgr.rc"],
-    vintf_fragments: ["aidl/android.hardware.power-service.oneplus_msm8998.xml"],
+    init_rc: ["aidl/android.hardware.power-service.cheeseburger-libperfmgr.rc"],
+    vintf_fragments: ["aidl/android.hardware.power-service.cheeseburger.xml"],
     vendor: true,
     shared_libs: [
         "android.hardware.power-V2-ndk",
@@ -42,7 +42,7 @@ cc_binary {
         "liblog",
         "libutils",
         "libbinder_ndk",
-        "libdisppower-msm8998",
+        "libdisppower",
         "libperfmgr",
         "libprocessgroup",
         "pixel-power-ext-V1-ndk",

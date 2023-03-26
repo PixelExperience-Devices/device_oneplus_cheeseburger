@@ -14,8 +14,7 @@ LOCAL_C_INCLUDES := \
     system/libbase/include
 
 LOCAL_SRC_FILES := recovery_updater.cpp
-LOCAL_MODULE := librecovery_updater_oneplus
+LOCAL_MODULE := librecovery_updater_cheeseburger
 LOCAL_MODULE_TAGS  := optional
 
 include $(BUILD_STATIC_LIBRARY)
-

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define LOG_TAG "android.hardware.light@2.0-service.oneplus_msm8998"
+#define LOG_TAG "android.hardware.light@2.0-service.cheeseburger"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
