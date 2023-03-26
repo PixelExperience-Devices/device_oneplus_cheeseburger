@@ -379,8 +379,7 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel \
-    hardware/oneplus
+    hardware/google/pixel
 
 # Tetheroffload
 PRODUCT_PACKAGES += \
