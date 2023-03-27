@@ -217,12 +217,14 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.devstart.sh \
     init.qcom.rc \
     init.qcom.usb.rc \
-    init.radio.sh \
     init.target.rc \
     ueventd.qcom.rc
+
+PRODUCT_PACKAGES += \
+    init.devstart.sh \
+    init.radio.sh
 
 # IRQ
 PRODUCT_COPY_FILES += \
