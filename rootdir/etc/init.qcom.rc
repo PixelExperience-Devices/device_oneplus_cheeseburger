@@ -46,10 +46,6 @@ on init
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    # qseecomd needs /dev/block/bootdevice
-    # vold needs keymaster that needs qseecomd
-    start vendor.qseecomd
-
     # disable thermal hotplug for configuration
     write /sys/module/msm_thermal/core_control/enabled 0
 
@@ -184,24 +180,12 @@ on fs
 on post-fs
     chown system system /proc/ship_mode
 
-    # Wait for qseecomd started
+    start vendor.qseecomd
     wait_for_prop vendor.sys.listeners.registered true
 
 on late-fs
     # Start devices by sysfs trigger
     start init-devstart-sh
-
-    # Start services for bootanim
-    start surfaceflinger
-    start bootanim
-    start vendor.hwcomposer-2-1
-    start vendor.configstore-hal
-    start vendor.gralloc-2-0
-
-    # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
-    # In such case, init won't responce the property_set from hwservicemanager and then
-    # cause services for bootanim not running.
-    wait_for_prop hwservicemanager.ready true
 
     # Mount RW partitions which need to run fsck
     mount_all /vendor/etc/fstab.qcom --late
