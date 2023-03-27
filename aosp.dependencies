@@ -1,0 +1,14 @@
+[
+  {
+    "repository": "vendor_oneplus_cheeseburger",
+    "target_path": "vendor/oneplus/cheeseburger",
+    "branch": "thirteen",
+    "remote": "pixel-devices-blobs"
+  },
+  {
+    "repository": "kernel_oneplus_msm8998",
+    "target_path": "kernel/oneplus/msm8998",
+    "branch": "thirteen",
+    "remote": "pixel-devices"
+  }
+]
