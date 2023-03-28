@@ -15,9 +15,7 @@ import android.util.Log
 
 import java.util.concurrent.Executors
 
-class PocketSensor(
-    private val context: Context, sensorType: String, private val sensorValue: Float
-) : SensorEventListener {
+class PocketSensor(private val context: Context, sensorType: String) : SensorEventListener {
     private val sensorManager = context.getSystemService(SensorManager::class.java)
     private val sensor = Utils.getSensor(sensorManager, sensorType)
 
@@ -31,7 +29,7 @@ class PocketSensor(
             return
         }
         entryTimestamp = SystemClock.elapsedRealtime()
-        if (event.values[0] == sensorValue) {
+        if (event.values[0] == 5.0002785f) {
             Utils.launchDozePulse(context)
         }
     }

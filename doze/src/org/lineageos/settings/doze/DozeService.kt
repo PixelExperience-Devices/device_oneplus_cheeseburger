@@ -28,16 +28,8 @@ class DozeService : Service() {
 
     override fun onCreate() {
         Log.d(TAG, "Creating service")
-        pickupSensor = PickupSensor(
-            this,
-            resources.getString(R.string.pickup_sensor_type),
-            resources.getFloat(R.dimen.pickup_sensor_value),
-        )
-        pocketSensor = PocketSensor(
-            this,
-            resources.getString(R.string.pocket_sensor_type),
-            resources.getFloat(R.dimen.pocket_sensor_value)
-        )
+        pickupSensor = PickupSensor(this, resources.getString(R.string.pickup_sensor_type))
+        pocketSensor = PocketSensor(this, resources.getString(R.string.pocket_sensor_type))
 
         val screenStateFilter = IntentFilter()
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON)
