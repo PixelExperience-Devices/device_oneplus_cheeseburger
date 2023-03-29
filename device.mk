@@ -5,7 +5,9 @@
 #
 
 $(call inherit-product, vendor/oneplus/cheeseburger/cheeseburger-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
+
+# API level, the device has been commercially launched on
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
 # APEX
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -370,9 +372,6 @@ PRODUCT_PACKAGES += \
 # Shims
 PRODUCT_PACKAGES += \
     libgui_shim
-
-# Shipping API level (for CTS backward compatibility)
-PRODUCT_SHIPPING_API_LEVEL := 25
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
