@@ -25,6 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+on charger
+    setprop sys.usb.configfs 1
+
 on boot
     # Create mount-point for ConfigFS USB gadgets
     mkdir /dev/usb-ffs 0770 shell shell

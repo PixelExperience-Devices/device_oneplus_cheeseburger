@@ -32,20 +32,7 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
-    write /proc/sys/kernel/sched_boost 1
-
 on init
-    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-
-    # Disable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 0
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 0
-    write /sys/module/lpm_levels/parameters/sleep_disabled Y
-
-    # QSEE rpmb listener needs symlink for bootdevice
-    wait /dev/block/platform/soc/${ro.boot.bootdevice}
-    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
     # disable thermal hotplug for configuration
     write /sys/module/msm_thermal/core_control/enabled 0
 
@@ -69,10 +56,6 @@ on init
     write /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us 500
     write /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us 20000
 
-    # Set boottime stune value
-    write /dev/stune/schedtune.prefer_idle 1
-    write /dev/stune/schedtune.boost 100
-
     # set default schedTune value for foreground/top-app
     write /dev/stune/foreground/schedtune.prefer_idle 1
     write /dev/stune/top-app/schedtune.boost 10
@@ -94,17 +77,6 @@ on init
     write /sys/module/lpm_levels/system/pwr/pwr-l2-ret/idle_enabled N
     write /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled N
     write /sys/module/lpm_levels/system/perf/perf-l2-ret/idle_enabled N
-
-    # ZRAM setup
-    write /sys/block/zram0/comp_algorithm lz4
-    write /proc/sys/vm/page-cluster 0
-
-    # create necessary cpusets
-    mkdir /dev/cpuset/camera-daemon 0750 cameraserver cameraserver
-    write /dev/cpuset/camera-daemon/cpus 0
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    chmod 0660 /dev/cpuset/camera-daemon/tasks
 
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
@@ -143,28 +115,6 @@ on init
     write /sys/bus/msm_subsys/devices/subsys6/restart_level RELATED
 
 on fs
-    mount_all /vendor/etc/fstab.qcom --early
-
-    chown root system /mnt/vendor/persist
-    chmod 0771 /mnt/vendor/persist
-
-    restorecon_recursive /mnt/vendor/persist
-
-    mkdir /mnt/vendor/persist/alarm 0777 system system
-    chmod 0666 /mnt/vendor/persist/alarm/data
-    mkdir /mnt/vendor/persist/bluetooth 0770 bluetooth bluetooth
-    mkdir /mnt/vendor/persist/camera 0777 system system
-    mkdir /mnt/vendor/persist/data 0700 system system
-    mkdir /mnt/vendor/persist/display 0770 system graphics
-    mkdir /mnt/vendor/persist/dual_camera_calibration 0777 system system
-    mkdir /mnt/vendor/persist/goodix 0777 system system
-    mkdir /mnt/vendor/persist/hdcp 775 media mediadrm
-    mkdir /mnt/vendor/persist/hdcp/media_dump 0770 mediaex mediadrm
-    mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
-    mkdir /mnt/vendor/persist/secnvm 0770 system system
-    mkdir /mnt/vendor/persist/time 0770 system system
-    mkdir /mnt/vendor/persist/vpp 0770 media media
-
     chown system system /mnt/vendor/persist/sensors
     chown system system /mnt/vendor/persist/sensors/sns.reg
     chown system system /mnt/vendor/persist/sensors/sensors_list.txt
@@ -174,25 +124,10 @@ on fs
     chown system system /mnt/vendor/persist/sensors/sensors_settings
     chown system system /mnt/vendor/persist/sensors/registry/sns_reg_config
     chown system system /mnt/vendor/persist/sensors/registry/config
-
     chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
 
-on post-fs
-    chown system system /proc/ship_mode
-
-    start vendor.qseecomd
-    wait_for_prop vendor.sys.listeners.registered true
-    write /dev/ipa 1
-
-on late-fs
-    # Mount RW partitions which need to run fsck
-    mount_all /vendor/etc/fstab.qcom --late
-
 on post-fs-data
-    # Nfc
-    mkdir /data/vendor/nfc 0770 nfc nfc
-
-    # Bluetooth
+    # Create directory for bluetooth
     mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
 
     # Create the directories used by the Wireless subsystem
@@ -296,26 +231,14 @@ on boot
     chmod 0660 /sys/devices/soc/soc:fingerprint_detect/sensor_version
     chown system system /sys/devices/soc/soc:fingerprint_detect/sensor_version
 
-    # DASH charger
-    chmod 0666 /dev/dash
-    restorecon /dev/dash
-
     # Set TCP MTU probing to automatic
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
 
+    # Enable qcrild
     start vendor.qcrild
     start vendor.qcrild2
 
 on charger
-    start vendor.dashd
-    start vendor.power_off_alarm
-    setprop sys.usb.configfs 1
-
-    # Enable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
-    write /sys/module/lpm_levels/parameters/sleep_disabled N
-
     # disable thermal core control
     write /sys/module/msm_thermal/core_control/enabled 0
 
@@ -333,29 +256,12 @@ on charger
     write /sys/devices/system/cpu/cpu7/online 0
 
 on property:sys.boot_completed=1
-    # Enable ZRAM
-    swapon_all /vendor/etc/fstab.qcom
-    write /proc/sys/vm/swappiness 100
-
-    # Set runtime stune value
-    write /dev/stune/schedtune.prefer_idle 0
-    write /dev/stune/schedtune.boost 0
-
-    # Enable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
-    write /sys/module/lpm_levels/parameters/sleep_disabled N
-
     # Setup final cpuset
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-3,6-7
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/restricted/cpus 0-3
-
-    # Tune FS for runtime
-    write /sys/block/sda/queue/read_ahead_kb 128
-    write /sys/block/sdf/queue/read_ahead_kb 128
 
     # WDSP FW boot sysfs node used by STHAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
@@ -387,12 +293,6 @@ service vendor.qcom-sh /vendor/bin/init.qcom.sh
     group root system radio
     oneshot
 
-service vendor.adsprpcd /vendor/bin/adsprpcd
-    class main
-    user media
-    group media
-    task_profiles ServiceCapacityLow
-
 service vendor.atfwd /vendor/bin/ATFWD-daemon
     class main
     user system
@@ -415,12 +315,6 @@ service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     user system
     group system inet net_admin wifi
     capabilities NET_ADMIN
-    task_profiles ServiceCapacityLow
-
-service vendor.dashd /vendor/bin/dashd
-    class core
-    critical
-    group root system
     task_profiles ServiceCapacityLow
 
 service vendor.irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
@@ -448,29 +342,8 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     group root
     task_profiles ServiceCapacityLow
 
-service vendor.pd_mapper /vendor/bin/pd-mapper
-    class core
-
-service vendor.per_mgr /vendor/bin/pm-service
-    class core
-    user system
-    group system
-    ioprio rt 4
-    task_profiles ServiceCapacityLow
-
-service vendor.per_proxy /vendor/bin/pm-proxy
-    class core
-    user system
-    group system
-    task_profiles ServiceCapacityLow
-    disabled
-
-on property:init.svc.vendor.per_mgr=running
-    start vendor.per_proxy
-
 on property:sys.shutdown.requested=*
     stop vendor.cnss-daemon
-    stop vendor.per_proxy
 
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
@@ -502,24 +375,8 @@ service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     capabilities NET_BIND_SERVICE
     task_profiles ServiceCapacityLow
 
-service vendor.qseecomd /vendor/bin/qseecomd
-    class core
-    user root
-    group root
-    task_profiles ServiceCapacityLow
-
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
     user system
     group system
-    task_profiles ServiceCapacityLow
-
-service vendor.thermal-engine /vendor/bin/thermal-engine
-    class main
-    user root
-    socket thermal-send-client stream 0666 system system
-    socket thermal-recv-client stream 0660 system system
-    socket thermal-recv-passive-client stream 0666 system system
-    socket thermal-send-rule stream 0660 system system
-    group root
     task_profiles ServiceCapacityLow
