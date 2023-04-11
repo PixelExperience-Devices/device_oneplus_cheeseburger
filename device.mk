@@ -235,7 +235,6 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.devstart.sh \
     init.radio.sh
 
 # IRQ
