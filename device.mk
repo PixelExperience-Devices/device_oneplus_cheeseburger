@@ -235,7 +235,7 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.radio.sh
+    init.qcom.sh
 
 # IRQ
 PRODUCT_COPY_FILES += \

@@ -22,4 +22,4 @@ if [ ! -f /vendor/firmware_mnt/verinfo/ver_info.txt -o "$prev_version_info" != "
     chown -hR radio.root /data/vendor/modem_config/*
 fi
 chmod g-w /data/vendor/modem_config
-echo 1 > /data/vendor/radio/copy_complete
+setprop ro.vendor.ril.mbn_copy_completed 1

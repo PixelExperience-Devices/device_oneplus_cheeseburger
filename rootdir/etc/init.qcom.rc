@@ -371,6 +371,9 @@ on property:sys.boot_completed=1
 
     write /dev/kmsg "Boot completed "
 
+on property:ro.vendor.ril.mbn_copy_completed=1
+    write /data/vendor/radio/copy_complete 1
+
 service charger /system/bin/charger
     class charger
     user system
@@ -378,7 +381,7 @@ service charger /system/bin/charger
     capabilities SYS_BOOT
     seclabel u:r:charger:s0
 
-service init-radio-sh /vendor/bin/init.radio.sh
+service vendor.qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     group root system radio
