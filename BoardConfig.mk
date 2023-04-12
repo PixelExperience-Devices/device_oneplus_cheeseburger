@@ -69,10 +69,6 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/framework_manifest
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_cheeseburger
-TARGET_RECOVERY_DEVICE_MODULES := libinit_cheeseburger
-
 # Partitions
 BOARD_USES_METADATA_PARTITION := true
 
