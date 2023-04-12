@@ -235,6 +235,7 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
+    init.qcom.post_boot.sh \
     init.qcom.sh
 
 # IRQ

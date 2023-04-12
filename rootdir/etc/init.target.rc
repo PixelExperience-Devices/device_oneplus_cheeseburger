@@ -16,6 +16,11 @@ on init
     write /dev/stune/schedtune.prefer_idle 1
     write /dev/stune/schedtune.boost 100
 
+    # set default schedTune value for foreground/top-app
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+    write /dev/stune/top-app/schedtune.boost 10
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+
     # Add a cpuset for the camera daemon
     mkdir /dev/cpuset/camera-daemon 0750 cameraserver cameraserver
     write /dev/cpuset/camera-daemon/cpus 0
