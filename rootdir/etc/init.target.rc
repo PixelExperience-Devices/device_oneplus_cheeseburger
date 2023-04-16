@@ -110,8 +110,8 @@ on boot
     chmod 0666 /sys/module/fpc1020_tee/parameters/ignor_home_for_ESD
 
     # Reversed keys
-    chown system system /sys/class/touch/tpnode/synaptics/reversed_keys
-    chmod 0644 /sys/class/touch/tpnode/synaptics/reversed_keys
+    chown system system /proc/s1302/key_rep
+    chmod 0644 /proc/s1302/key_rep
 
 on property:sys.boot_completed=1
     # Enable UFS powersaving

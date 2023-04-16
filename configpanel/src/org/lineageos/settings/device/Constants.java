@@ -28,7 +28,7 @@ public class Constants {
     public static final String BUTTON_SWAP_KEY = "button_swap";
 
     // Nodes
-    public static final String BUTTON_SWAP_PATH = "/sys/class/input/input4/reversed_keys";
+    public static final String BUTTON_SWAP_PATH = "/proc/s1302/key_rep";
 
     // Holds <preference_key> -> <proc_node> mapping
     public static final Map<String, SwitchPreferenceBackend> sBackendsMap = new HashMap<>();
