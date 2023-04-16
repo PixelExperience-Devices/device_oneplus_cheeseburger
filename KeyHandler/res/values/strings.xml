@@ -8,7 +8,8 @@
     <string name="device_settings_app_name">Advanced settings</string>
 
     <!-- Button settings -->
-    <string name="button_panel_title">Additional buttons</string>
+    <string name="buttons_dashboard_summary">Alert Slider settings</string>
+    <string name="buttons_alert_summary">Configure Alert Slider actions</string>
 
     <!-- Alert slider -->
     <string name="alert_slider_category_title">Alert slider</string>
