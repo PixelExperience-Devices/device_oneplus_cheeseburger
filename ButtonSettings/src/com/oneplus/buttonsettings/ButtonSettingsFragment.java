@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.device;
+package com.oneplus.buttonsettings;
 
 import android.app.ActionBar;
 import android.content.SharedPreferences;
@@ -35,7 +35,7 @@ public class ButtonSettingsFragment extends PreferenceFragment
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.button_panel);
+        addPreferencesFromResource(R.xml.button_settings);
         final ActionBar actionBar = getActivity().getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
     }

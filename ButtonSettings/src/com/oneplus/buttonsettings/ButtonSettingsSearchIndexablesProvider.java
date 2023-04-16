@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.device;
+package com.oneplus.buttonsettings;
 
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -33,13 +33,13 @@ import static android.provider.SearchIndexablesContract.INDEXABLES_RAW_COLUMNS;
 import static android.provider.SearchIndexablesContract.INDEXABLES_XML_RES_COLUMNS;
 import static android.provider.SearchIndexablesContract.NON_INDEXABLES_KEYS_COLUMNS;
 
-public class ConfigPanelSearchIndexablesProvider extends SearchIndexablesProvider {
-    private static final String TAG = "ConfigPanelSearchIndexablesProvider";
+public class ButtonSettingsSearchIndexablesProvider extends SearchIndexablesProvider {
+    private static final String TAG = "ButtonSettingsSearchIndexablesProvider";
 
     public static final int SEARCH_IDX_BUTTON_PANEL = 0;
 
     private static SearchIndexableResource[] INDEXABLE_RES = new SearchIndexableResource[]{
-            new SearchIndexableResource(1, R.xml.button_panel,
+            new SearchIndexableResource(1, R.xml.button_settings,
                     ButtonSettingsActivity.class.getName(),
                     R.drawable.ic_settings_additional_buttons),
     };
@@ -63,7 +63,7 @@ public class ConfigPanelSearchIndexablesProvider extends SearchIndexablesProvide
         ref[COLUMN_INDEX_XML_RES_CLASS_NAME] = null;
         ref[COLUMN_INDEX_XML_RES_ICON_RESID] = sir.iconResId;
         ref[COLUMN_INDEX_XML_RES_INTENT_ACTION] = "com.android.settings.action.EXTRA_SETTINGS";
-        ref[COLUMN_INDEX_XML_RES_INTENT_TARGET_PACKAGE] = "org.lineageos.settings.device";
+        ref[COLUMN_INDEX_XML_RES_INTENT_TARGET_PACKAGE] = "com.oneplus.buttonsettings";
         ref[COLUMN_INDEX_XML_RES_INTENT_TARGET_CLASS] = sir.className;
         return ref;
     }

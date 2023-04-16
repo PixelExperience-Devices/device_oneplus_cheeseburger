@@ -132,16 +132,16 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
+# ButtonSettings
+PRODUCT_PACKAGES += \
+    ButtonSettings
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.4:64 \
     android.hardware.camera.provider@2.4-impl:32 \
     android.hardware.camera.provider@2.4-service \
     vendor.qti.hardware.camera.device@1.0
-
-# ConfigPanel
-PRODUCT_PACKAGES += \
-    ConfigPanel
 
 # Display
 PRODUCT_PACKAGES += \

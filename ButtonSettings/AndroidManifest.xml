@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lineageos.settings.device"
+    package="com.oneplus.buttonsettings"
     android:versionCode="6"
     android:versionName="2.5"
     android:sharedUserId="android.uid.system">
@@ -31,8 +31,8 @@
         android:directBootAware="true">
 
         <provider
-            android:name=".ConfigPanelSearchIndexablesProvider"
-            android:authorities="org.lineageos.settings.device"
+            android:name=".ButtonSettingsSearchIndexablesProvider"
+            android:authorities="com.oneplus.buttonsettings"
             android:multiprocess="false"
             android:grantUriPermissions="true"
             android:permission="android.permission.READ_SEARCH_INDEXABLES"
@@ -47,7 +47,7 @@
             android:exported="false"
             android:label="@string/button_panel_title">
             <intent-filter>
-                <action android:name="org.lineageos.settings.device.ADDITIONAL_BUTTONS_SETTINGS" />
+                <action android:name="com.oneplus.buttonsettings.ADDITIONAL_BUTTONS_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

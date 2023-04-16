@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.device;
+package com.oneplus.buttonsettings;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
