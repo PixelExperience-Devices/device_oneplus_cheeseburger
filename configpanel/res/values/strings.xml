@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Device specific settings -->
+    <string name="device_settings_app_name">Advanced settings</string>
+
+    <!-- Button settings -->
+    <string name="button_panel_title">Additional buttons</string>
+    <string name="button_swap_title">Swap buttons</string>
+    <string name="button_swap_summary">Swap the order of recents and back buttons</string>
+</resources>
