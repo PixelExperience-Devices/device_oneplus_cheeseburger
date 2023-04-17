@@ -43,3 +43,6 @@
 
 # Root symlink
 /persist                                                        u:object_r:mnt_vendor_file:s0
+
+# Swap Buttons
+/s1302/key_rep                                                  u:object_r:proc_touchpanel:s0
