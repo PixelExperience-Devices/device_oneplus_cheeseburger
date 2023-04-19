@@ -4,11 +4,14 @@
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+    <!-- DO NOT TRANSLATE Empty summary for dynamic preferences -->
+    <string name="summary_empty" translatable="false"></string>
+
     <!-- Device specific settings -->
     <string name="device_settings_app_name">Advanced settings</string>
 
     <!-- Button settings -->
-    <string name="button_panel_title">Additional buttons</string>
+    <string name="buttons_dashboard_summary">Hardware button settings</string>
     <string name="button_swap_title">Swap buttons</string>
     <string name="button_swap_summary">Swap the order of recents and back buttons</string>
 </resources>

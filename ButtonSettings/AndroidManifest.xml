@@ -45,11 +45,19 @@
         <activity
             android:name=".ButtonSettingsActivity"
             android:exported="false"
-            android:label="@string/button_panel_title">
+            android:label="@string/buttons_dashboard_summary">
             <intent-filter>
-                <action android:name="com.oneplus.buttonsettings.ADDITIONAL_BUTTONS_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.system" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/summary_empty" />
+            <meta-data
+                android:name="com.android.settings.order"
+                android:value="-255" />
         </activity>
 
         <receiver android:name=".BootCompletedReceiver"
