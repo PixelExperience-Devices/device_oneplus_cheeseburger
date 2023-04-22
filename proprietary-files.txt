@@ -435,42 +435,59 @@ vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|d9f1aa7f93b928f42499d613d20ccbc60f279097
 vendor/lib64/libdpmqmihal.so|41eb89e66ba065c43a5eb79cd3c72cef0ee167aa
 
-# DRM
-vendor/bin/hw/vendor.oneplus.hardware.drmkey@1.0-service
-vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
-vendor/bin/qseecomd
-vendor/etc/init/vendor.oneplus.hardware.drmkey@1.0-service.rc
-vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so
-vendor/lib64/libDrmKry.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/libSecureUILib.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libbase64.so
-vendor/lib64/libcpion.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libqisl.so
-vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libsi.so
-vendor/lib64/libspl.so
-vendor/lib64/libssd.so
-vendor/lib64/libtzdrmgenprov.so
-vendor/lib64/libwms.so
-vendor/lib64/libwqe.so
-vendor/lib64/libxml.so
-vendor/lib64/vendor.oneplus.hardware.drmkey@1.0.so
-vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
+# DRM - from phoenix_sprout - RKQ1.201123.002
+system_ext/lib64/vendor.qti.hardware.qseecom@1.0.so|c791f087e70afa25eece01df688cca10c98996fd
+vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service|9bbbb98699438abb8da802c04b03f9a426e6140c
+vendor/bin/qseecomd|fbaadec73605f1030441102f75f65e7798796f2a
+vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc|0f43244d70d5efc1e4f089b926a9dc4f59e53db1
+vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so|549efb5fe6700fbf1a1c4ffaf4682fc1cd4db8a2
+vendor/lib64/libGPreqcancel.so|cef7983d5aceb03b4c422731c838ead1a8f3fed4
+vendor/lib64/libGPreqcancel_svc.so|e9874fe970ced25c88baae1d758ef0ceb8effa6d
+vendor/lib64/libQSEEComAPI.so|1d1ee2a76842d565b3af0f98a47e80a92a0bc674
+vendor/lib64/libSecureUILib.so|f63bbf3a468529a91a43c28b2bc0d8f43786c01c
+vendor/lib64/libStDrvInt.so|8e6dae4cf49691c528fc466b5e04757e748b9dcd
+vendor/lib64/libbase64.so|70bc95e0861eb969d7361c3d13727180c83c44b8
+vendor/lib64/libcpion.so|0a6999ca33dea3bed4301106fc225f9b11b9f289
+vendor/lib64/libdrmfs.so|cf8706de5796a29fec22e2b1e0edd2aacc7ffc7e
+vendor/lib64/libdrmtime.so|a3a2686bf4049adf67612fe890d94bc54b5fc4e6
+vendor/lib64/libhdcpsrm.so|affdc2195766c34226510dd422fbf22f689b25b2
+vendor/lib64/libqisl.so|529d7e20bb33147fe3404c1a58d266e49228046a
+vendor/lib64/librmp.so|2618a622b4bcd285878f9a65bf75fef57885bc2e
+vendor/lib64/librpmb.so|7e79c722e87fbe1de6c1b1032e1778f8c91551cb
+vendor/lib64/libsecureui_svcsock.so|8cb2b74edaf3ef77c8da0799cf241426a441d51f
+vendor/lib64/libspl.so|f9c12bc40b075ef5b933fe0ff6b86ebe72a031db
+vendor/lib64/libssd.so|d056d130421f999321f32e046165776e20f1027d
+vendor/lib64/libtzdrmgenprov.so|5104c6dea64456d87c349cd97d15b2dc2c53a4cb
+vendor/lib64/vendor.qti.hardware.qseecom@1.0.so|fe1bde67c8944ca9100962e7bad14d2f7bb98594
 
-# DRM (Widevine)
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine
-vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
-vendor/lib/libcppf.so
-vendor/lib64/libwvhidl.so
+# DRM (QTEE) - from phoenix_sprout - RKQ1.201123.002
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service|f8dc88c7166ffc2c1d997e7d5f16a8eb69c37cfc
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc|c966350ee67d3a7c73ca7184e3725264025d16f5
+vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|b972c6026a512900a34e9caf75ce573981d4f796
+vendor/lib/libGPQTEEC_vendor.so|ab737e64c2fe5e650a52bf2cd28ad7df2376ab1c
+vendor/lib/libGPTEE_vendor.so|d1ce5aebe0bc1a31f17c8dca55e2e9c2c7dff744
+vendor/lib/libQTEEConnector_vendor.so|56496036beb17efa9a5213bc12dc018dd1aaca66
+vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so|56eaeb4e418a0e7bf0248992da6a1e33600bbb63
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|375e753fa751bbf727a9bfebcaea9c65d8c240b3
+vendor/lib64/libGPQTEEC_vendor.so|22bf79c99fffb5a96c5a674e9d002f6472267de1
+vendor/lib64/libGPTEE_vendor.so|a8896a022e2b977997a40be9c584ff778d25c0f9
+vendor/lib64/libQTEEConnector_vendor.so|62d8993f51e0d4a0c4d6ae2645512ddfc76577f3
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|3d285aedf54c067181a1ff2c7a445ac648dc0d76
+
+# DRM (TUI) - from phoenix_sprout - RKQ1.201123.002
+system_ext/lib/vendor.qti.hardware.tui_comm@1.0.so|d02bf7dc5c2f144b72051394d30b21dbe5e0eda4
+system_ext/lib64/vendor.qti.hardware.tui_comm@1.0.so|fd11bbe37b13b5b2b98c8979d3f0be961389c6d6
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|e8d97981d09a4e34907d13bcbbd10f03572c9218
+vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e1579374f001c94588fae7835a12ffc
+vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|0ff139504e354b06b9cb230bb2e34406c3700b66
+vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|520d20c145f1c8109470e592bcc360d09b5915bb
+
+# DRM (Widevine) - from phoenix_sprout - RKQ1.201123.002
+vendor/bin/hw/android.hardware.drm@1.3-service.widevine|7c65a818f9c3d00051698e2a51425058083d69c4
+vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|c35e1a6f9a6faff19064a81e07c4be82ceaf4bb5
+-vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
+vendor/lib64/liboemcrypto.so|6280a072d0e5e37402909dce9936867438f4a945
+vendor/lib64/libwvhidl.so|a2895686778b2b08b6c53ac22bf01120b1daaec3
 
 # ESE Powermanager
 vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
@@ -906,20 +923,6 @@ vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 -vendor/lib64/libtime_genoff.so
-
-# Trusted Execution Environment connector
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/libGPQTEEC_vendor.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
-
-# Trusted User Interface
-vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
-vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
-vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # Wi-Fi
 vendor/bin/cnss-daemon

@@ -24,7 +24,6 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.cheeseburger               u:object_r:hal_light_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.cheeseburger-libperfmgr         u:object_r:hal_power_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.camera\.CameraHIDL@1\.0-service                  u:object_r:hal_cameraHIDL_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.drmkey@1\.0-service                    u:object_r:hal_drm_default_exec:s0
 
 # Keydisabler
 /sys/module/fpc1020_tee/parameters/ignor_home_for_ESD           u:object_r:sysfs_fpc_key:s0
