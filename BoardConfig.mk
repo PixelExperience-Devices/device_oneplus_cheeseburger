@@ -6,13 +6,6 @@
 
 DEVICE_PATH := device/oneplus/cheeseburger
 
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := msm8998
-TARGET_NO_BOOTLOADER := true
-
-# Platform
-TARGET_BOARD_PLATFORM := msm8998
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -26,34 +19,25 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a73
 
-BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-
-# Assertions
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
-TARGET_OTA_ASSERT_DEVICE := cheeseburger,OnePlus5,oneplus5
-
-# Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=2048
-BOARD_KERNEL_CMDLINE += loop.max_part=7
-BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boot_devices=soc/1da4000.ufshc
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_SOURCE := kernel/oneplus/msm8998
-TARGET_KERNEL_CONFIG := cheeseburger_defconfig
-
-# QCOM hardware
-BOARD_USES_QCOM_HARDWARE := true
-
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+
+# Assert
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+TARGET_OTA_ASSERT_DEVICE := cheeseburger,OnePlus5,oneplus5
 
 # Audio
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := msm8998
+TARGET_NO_BOOTLOADER := true
+
+# Build
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Display
 TARGET_SCREEN_DENSITY := 420
@@ -68,6 +52,17 @@ TARGET_FS_CONFIG_GEN += $(DEVICE_PATH)/configs/config.fs
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
+
+# Kernel
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=2048
+BOARD_KERNEL_CMDLINE += loop.max_part=7
+BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boot_devices=soc/1da4000.ufshc
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_KERNEL_SOURCE := kernel/oneplus/msm8998
+TARGET_KERNEL_CONFIG := cheeseburger_defconfig
 
 # Partitions
 BOARD_USES_METADATA_PARTITION := true
@@ -118,10 +113,16 @@ endif
 BOARD_ODMIMAGE_PARTITION_RESERVED_SIZE := 41943040
 BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 41943040
 
+# Platform
+TARGET_BOARD_PLATFORM := msm8998
+
 # Properties
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+# QCOM
+BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
@@ -168,5 +169,5 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-# inherit from the proprietary version
+# inherit from proprietary files
 include vendor/oneplus/cheeseburger/BoardConfigVendor.mk
