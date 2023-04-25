@@ -21,6 +21,7 @@
     <!-- Ambient settings -->
     <string name="ambient_display_title">Ambient display</string>
     <string name="ambient_display_enable_summary">Wake screen when you receive notifications</string>
+    <string name="ambient_display_summary">Adjust Ambient display settings</string>
     <string name="ambient_display_enable_title">Use ambient display</string>
     <string name="ambient_display_always_on_title">Always on</string>
     <string name="ambient_display_always_on_summary">Show time, notification icons, and other info. Increased battery usage.</string>
