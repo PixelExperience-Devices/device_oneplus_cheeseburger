@@ -6,6 +6,5 @@
 runtime_resource_overlay {
     name: "CheeseburgerTetheringConfigOverlay",
     resource_dirs: ["res"],
-    sdk_version: "current",
     proprietary: true,
 }
