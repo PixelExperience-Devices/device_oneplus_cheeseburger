@@ -287,11 +287,15 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-aosp
-
-PRODUCT_ENFORCE_RRO_TARGETS += *
+PRODUCT_PACKAGES += \
+    AOSPCheeseburgerApertureOverlay \
+    AOSPCheeseburgerFrameworksOverlay \
+    AOSPCheeseburgerSystemUIOverlay \
+    CheeseburgerFrameworksOverlay \
+    CheeseburgerSettingsOverlay \
+    CheeseburgerSettingsProviderOverlay \
+    CheeseburgerSystemUIOverlay \
+    CheeseburgerTelephonyOverlay
 
 # Perf
 PRODUCT_PACKAGES += \
@@ -382,7 +386,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Telephony
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlay \
+    CheeseburgerCarrierConfigOverlay \
     ims-ext-common \
     ims_ext_common.xml \
     qti-telephony-hidl-wrapper \
@@ -448,8 +452,8 @@ PRODUCT_PACKAGES += \
     wificond \
     wpa_supplicant \
     wpa_supplicant.conf \
-    TetheringConfigOverlay \
-    WifiOverlay
+    CheeseburgerTetheringConfigOverlay \
+    CheeseburgerWifiOverlay
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
