@@ -9,11 +9,6 @@ android_app {
     platform_apis: true,
     system_ext_specific: true,
 
-    static_libs: [
-        "androidx.core_core",
-        "androidx.preference_preference",
-    ],
-
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },
