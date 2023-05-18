@@ -36,18 +36,6 @@
             android:authorities="${applicationId}.androidx-startup"
             tools:replace="android:authorities"/>
 
-        <provider
-            android:name=".ButtonSettingsSearchIndexablesProvider"
-            android:authorities="com.oneplus.buttonsettings"
-            android:multiprocess="false"
-            android:grantUriPermissions="true"
-            android:permission="android.permission.READ_SEARCH_INDEXABLES"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
-            </intent-filter>
-        </provider>
-
         <activity
             android:name=".ButtonSettingsActivity"
             android:exported="false"
