@@ -12,7 +12,6 @@
     <string name="buttons_alert_summary">Configure Alert Slider actions</string>
 
     <!-- Alert slider -->
-    <string name="alert_slider_category_title">Alert slider</string>
     <string name="alert_slider_selection_dialog_title">Action</string>
     <string name="alert_slider_top_position">Top position</string>
     <string name="alert_slider_middle_position">Middle position</string>
